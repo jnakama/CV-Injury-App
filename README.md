@@ -1,5 +1,4 @@
 # CV-Injury-App
-Link: cvinjuryapp.herokuapp.com
 
 Online and free database for storing injuries and treatments of local high school student athletes. 
 For use by high school athletic trainer, on any laptop or mobile device.
