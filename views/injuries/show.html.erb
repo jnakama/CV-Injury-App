@@ -1,0 +1,56 @@
+<h1>View Injury</h1>
+<%= link_to "Go back", injuries_path, :class => 'btn btn-default'%>
+<%= link_to "Edit", edit_injury_path(@injury), :class => 'btn btn-default'%>
+<%= link_to "Delete", injury_path(@injury), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, :class => 'btn btn-danger'%>
+<br>
+<h3>Report</h3>
+<p><b>Sport: </b><%= @injury.sport %></p>
+<p><b>Name: </b><%= @injury.name %></p>
+<p><b>Exposure: </b><%= @injury.exposure%></p>
+<p><b>Date: </b><%= @injury.date %></p>
+<p><b>General Notes: </b><%= @injury.reportnotes %></p><br>
+<h3>Details</h3>
+<p><b>Side: </b><%= @injury.side %></p>
+<p><b>Part: </b><%= @injury.part %></p>
+<p><b>Type: </b><%= @injury.injurytype %></p>
+<p><b>Symptoms: </b><%= @injury.symptoms %></p>
+<p><b>Injury Detail notes: </b><%= @injury.injurynotes %></p><br>
+<h3>Treatment</h3>
+<p><b>Immediate treatment:</b> <%= @injury.immediatetreatment %></p>
+<p><b>Return date: </b></b><%= @injury.returndate %></p>
+    <% if @injury.returned == "true"%>
+    <p><b>Has returned:</b>
+        Yes
+    </p>
+    <%else%>
+    <p><b>Has returned:</b>
+        No
+    </p>
+    <%end%>
+<p><b>Treatment Notes: </b><%= @injury.treatmentnotes %></p>
+
+<br>
+        
+        <%= link_to "Download PDF version",  injuries_generate_path(:id => @injury.id)%>
+        <br><br>
+
+<br>
+       <% if @injury.attachment.attached? %>
+        <div class= "injury_attachment">
+     
+       
+            <%= link_to "Download Attachment", url_for(@injury.attachment),target: :_blank %>
+            <br>
+                     <br>
+        Currently attached: <%= @injury.attachment.filename %>
+        <br><br>
+            </div>
+        <%end%>
+        
+        
+        
+        
+<hr>
+
+
+

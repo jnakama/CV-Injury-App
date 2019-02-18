@@ -1,0 +1,39 @@
+<header class="navbar-edit navbar navbar-fixed-top navbar-inverse ">
+  <div class="container">
+    <% if logged_in? %>
+    <%= link_to "injury tracker", injuries_path, id: "logo" %>
+    <% else %>
+    <%= link_to "injury tracker", root_path, id: "logo" %>
+    <% end %>
+
+
+
+    <nav>
+      <ul class="navbar-edit nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to "View Injuries", injuries_path %></li>
+          <li><%= link_to "Report Injury", "/injuries/new" %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
